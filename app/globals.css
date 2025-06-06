@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%; /* #333 相当のカラーに変更 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%; /* カードテキスト色も変更 */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%; /* ポップオーバーテキスト色も変更 */
+
+    --primary: 150 24% 49%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 150 24% 61%;
+    --primary-dark: 150 24% 39%;
+    --primary-hover: 150 24% 45%; /* ホバー時の色を追加 */
+
+    --secondary: 60 20% 96%;
+    --secondary-foreground: 210 15% 21%;
+
+    --accent: 47 80% 51%;
+    --accent-foreground: 210 15% 21%;
+    --accent-light: 47 80% 62%;
+    --accent-dark: 47 80% 44%;
+
+    --muted: 60 20% 96%;
+    --muted-foreground: 0 0% 20%; /* #333 相当のカラーに変更 */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 150 24% 49%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 60 10% 91%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 60 10% 91%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 60 10% 91%;
+
+    --primary: 150 24% 61%;
+    --primary-foreground: 0 0% 10%;
+    --primary-hover: 150 24% 55%; /* ダークモード用のホバー色を追加 */
+
+    --secondary: 120 3% 18%;
+    --secondary-foreground: 60 10% 91%;
+
+    --accent: 47 80% 62%;
+    --accent-foreground: 0 0% 10%;
+
+    --muted: 120 3% 18%;
+    --muted-foreground: 60 10% 70%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 3% 25%;
+    --input: 120 3% 25%;
+    --ring: 150 24% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+  h3 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+  h4 {
+    @apply text-lg md:text-xl;
+  }
+
+  /* スムーズスクロール */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 60px;
+  }
+  @media (min-width: 1024px) {
+    section[id] {
+      scroll-margin-top: 0;
+    }
+  }
+
+  ::placeholder {
+    color: #9ca3af !important;
+    opacity: 0.7;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-12 sm:py-12 md:py-16 lg:py-24;
+  }
+
+  .section-title {
+    @apply text-center mb-8 md:mb-12;
+  }
+
+  .section-title h2 {
+    @apply relative inline-block pb-4 md:pb-6;
+  }
+
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4rem;
+    height: 0.25rem;
+    background-color: hsl(var(--primary));
+    margin-top: 0.75rem;
+  }
+
+  .section-title p {
+    @apply mt-6 text-muted-foreground max-w-2xl mx-auto text-sm md:text-lg;
+  }
+
+  /* お知らせセクションのスタイル */
+  .announcement-content ul {
+    @apply space-y-1 my-2;
+  }
+
+  .announcement-content ul li {
+    @apply relative pl-5;
+  }
+
+  .announcement-content ul li::before {
+    content: '・';
+    @apply absolute left-0 text-primary font-bold;
+  }
+
+  .announcement-content p {
+    @apply my-2;
+  }
+}
