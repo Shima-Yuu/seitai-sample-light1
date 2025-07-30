@@ -1,5 +1,9 @@
 # ライトプラン 1
 
+## URL
+
+https://light1.vercel.app/
+
 ## 開発手順
 
 ### 前提
